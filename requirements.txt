@@ -1,1 +1,4 @@
 cloudscraper
+selenium
+webdriver-manager
+xlsxwriter

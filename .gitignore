@@ -193,3 +193,11 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# ==================================
+#  Fab-Forge Project Generated Files
+# ==================================
+# 忽略所有由脚本生成的报告和数据文件
+
+*.xlsx
+*.csv
