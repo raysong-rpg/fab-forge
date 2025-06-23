@@ -199,5 +199,4 @@ cython_debug/
 # ==================================
 # 忽略所有由脚本生成的报告和数据文件
 
-*.xlsx
-*.csv
+my_fab_assets_library/

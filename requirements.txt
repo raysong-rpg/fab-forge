@@ -1,4 +1,4 @@
 cloudscraper
-selenium
-webdriver-manager
-xlsxwriter
+requests
+bs4
+beautifulsoup4
