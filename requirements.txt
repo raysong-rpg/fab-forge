@@ -1,4 +1,6 @@
 cloudscraper
-requests
 bs4
 beautifulsoup4
+selenium
+pandas
+xlsxwriter

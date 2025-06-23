@@ -57,7 +57,7 @@
    - **第五步：** 在右侧的 **“标头(Headers)”** 部分，向下滚动到 **“请求标头(Request Headers)”**，然后右键点击 `cookie:` 字段，选择 **“复制值(Copy value)”**。
    - **第六步：** 打开 `fab_library_scraper.py` 文件，将您复制的 `Cookie` 值完整地粘贴到 `headers` 字典的 `cookie` 键对应的值的位置。
      ```python
-     # fab_library_scraper.py
+     # step1_fetch_library.py
      headers = {
          'cookie': '在此处粘贴您复制的完整Cookie字符串',
          # ... 其他请求头保持不变 ...
@@ -68,7 +68,7 @@
 2. **运行脚本**
    在终端中运行：
    ```bash
-   python fab_library_scraper.py
+   python step1_fetch_library.py
    ```
 
 3. **查看结果**

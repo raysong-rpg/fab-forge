@@ -2,7 +2,7 @@ def create_readme_file():
     """
     生成 fab-forge 项目的 README.md 文件。
     将 README 内容逐行存入列表，最后统一写入文件，以避免任何渲染错误。
-    【已根据新版 fab_library_scraper.py 进行更新】
+    【已根据新版 step1_fetch_library.py 进行更新】
     """
     readme_content = []
 
@@ -39,7 +39,7 @@ def create_readme_file():
     readme_content.append("   ```bash")
     readme_content.append("   pip install -r requirements.txt")
     readme_content.append("   ```")
-    readme_content.append("   > **提示:** `fab_library_scraper.py` 的 Excel(.xlsx)导出功能依赖 `XlsxWriter` 库。如果`requirements.txt`中未包含，请手动安装: `pip install XlsxWriter`")
+    readme_content.append("   > **提示:** `step1_fetch_library.py` 的 Excel(.xlsx)导出功能依赖 `XlsxWriter` 库。如果`requirements.txt`中未包含，请手动安装: `pip install XlsxWriter`")
     readme_content.append("")
     readme_content.append("---")
     readme_content.append("")
@@ -49,7 +49,7 @@ def create_readme_file():
     readme_content.append("")
 
     # --- 工具 1: Fab 库资产导出器 (更新) ---
-    readme_content.append("### 1. Fab 库资产导出器 (`fab_library_scraper`)")
+    readme_content.append("### 1. Fab 库资产导出器 (`step1_fetch_library`)")
     readme_content.append("")
     readme_content.append(
         "**功能描述：** 登录您的 Fab 账户，自动抓取您已拥有的 **全部** 资产，并将其详细信息导出为结构清晰的 `.xlsx` (Excel) 和 `.csv` 文件。")
@@ -62,7 +62,7 @@ def create_readme_file():
     readme_content.append("- **详细字段导出：** 导出内容包括资产名、类型、详情页URL、价格、货币、入库日期、UID以及新增的 `Notes` 字段。")
     readme_content.append("- **智能容错与标记：** 能够自动处理API返回的不规范数据（如缺失的价格信息），确保脚本不会中途崩溃，并会在 `Notes` 列中对这些特殊条目进行标注。")
     readme_content.append("- **自动防护绕过：** 集成了 `cloudscraper` 库，能够自动应对 Cloudflare 的 JavaScript 验证。")
-    readme_content.append("- **整洁的文件管理：** 所有导出的文件都会自动保存在一个名为 `my_fab_assets_library` 的文件夹中，保持项目根目录的整洁。")
+    readme_content.append("- **整洁的文件管理：** 所有导出的文件都会自动保存在一个名为 `output` 的文件夹中，保持项目根目录的整洁。")
     readme_content.append("")
     readme_content.append("#### 使用说明")
     readme_content.append("")
@@ -73,9 +73,9 @@ def create_readme_file():
     readme_content.append("   - **第三步：** 在该页面上，按下 `F12` 打开开发者工具，切换到 **“网络(Network)”** 标签页。")
     readme_content.append("   - **第四步：** 刷新页面。在请求列表中，找到任意一个向 `www.fab.com/i/...` 发出的请求（例如 `search?sort_by=...`）。点击它。")
     readme_content.append("   - **第五步：** 在右侧的 **“标头(Headers)”** 部分，向下滚动到 **“请求标头(Request Headers)”**，然后右键点击 `cookie:` 字段，选择 **“复制值(Copy value)”**。")
-    readme_content.append("   - **第六步：** 打开 `fab_library_scraper.py` 文件，将您复制的 `Cookie` 值完整地粘贴到 `headers` 字典的 `cookie` 键对应的值的位置。")
+    readme_content.append("   - **第六步：** 打开 `step1_fetch_library.py` 文件，将您复制的 `Cookie` 值完整地粘贴到 `headers` 字典的 `cookie` 键对应的值的位置。")
     readme_content.append("     ```python")
-    readme_content.append("     # fab_library_scraper.py")
+    readme_content.append("     # step1_fetch_library.py")
     readme_content.append("     headers = {")
     readme_content.append("         'cookie': '在此处粘贴您复制的完整Cookie字符串',")
     readme_content.append("         # ... 其他请求头保持不变 ...")
@@ -86,14 +86,14 @@ def create_readme_file():
     readme_content.append("2. **运行脚本**")
     readme_content.append("   在终端中运行：")
     readme_content.append("   ```bash")
-    readme_content.append("   python fab_library_scraper.py")
+    readme_content.append("   python step1_fetch_library.py")
     readme_content.append("   ```")
     readme_content.append("")
     readme_content.append("3. **查看结果**")
-    readme_content.append("   运行成功后，将在项目根目录下创建一个名为 **`my_fab_assets_library`** 的文件夹。其中包含两个文件：")
-    readme_content.append("   - 📄 **`my_fab_assets_library.xlsx`**")
+    readme_content.append("   运行成功后，将在项目根目录下创建一个名为 **`output`** 的文件夹。其中包含两个文件：")
+    readme_content.append("   - 📄 **`output.xlsx`**")
     readme_content.append("     - **（推荐查看）** 这是一个格式精美的Excel文件，为最佳查看体验而设计。")
-    readme_content.append("   - 💾 **`my_fab_assets_library.csv`**")
+    readme_content.append("   - 💾 **`output.csv`**")
     readme_content.append("     - 一个标准的CSV文件，适合程序读取、数据迁移或导入其他数据库。")
     readme_content.append("")
     readme_content.append("---")
@@ -103,7 +103,7 @@ def create_readme_file():
     readme_content.append("### 2. [待开发] Fab 资产批量下载器 (`fab_asset_downloader.py`)")
     readme_content.append("")
     readme_content.append(
-        "**功能设想：** 读取由 `fab_library_scraper.py` 生成的CSV或Excel文件，根据用户的选择，批量下载指定资产的源文件。")
+        "**功能设想：** 读取由 `step1_fetch_library.py` 生成的CSV或Excel文件，根据用户的选择，批量下载指定资产的源文件。")
     readme_content.append("")
     readme_content.append("> **状态：** 计划中... 欢迎贡献！")
     readme_content.append("")
