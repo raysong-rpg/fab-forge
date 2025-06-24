@@ -1,0 +1,35 @@
+fab-forge/                               # 项目根目录
+├── 01_fetch_library/                    # 模块一：获取原始资产库
+│   ├── output/                          # 模块一的输出目录
+│   │   ├── my_fab_assets_library.csv
+│   │   └── my_fab_assets_library.xlsx
+│   ├── __init__.py                      # (让此目录成为一个包)
+│   └── fab_library_scraper.py           # 模块一的执行脚本
+│
+├── 02_enrich_data/                      # 模块二：增强资产信息
+│   ├── output/                          # 模块二的输出目录
+│   │   ├── enhanced_fab_assets.csv
+│   │   └── enhanced_fab_assets.xlsx
+│   │
+│   ├── scrapers/                        # 存放具体抓取逻辑的模块
+│   │   ├── __init__.py
+│   │   ├── basic_info_api.py            # 职责：通过API获取基础信息
+│   │   └── full_details_selenium.py     # 职责：通过Selenium获取完整细节
+│   │
+│   ├── services/                        # 存放与外部服务交互的模块
+│   │   ├── __init__.py
+│   │   └── deepseek_client.py           # 职责：处理与DeepSeek API的交互
+│   │
+│   ├── utils/                           # (推荐) 存放可重用的工具函数
+│   │   ├── __init__.py
+│   │   └── file_handler.py              # 职责：处理文件读写，如保存为CSV/XLSX
+│   │
+│   ├── config.py                        # 存放所有配置，如API Key, 文件路径等
+│   └── main.py                          # 模块二的主执行脚本 (总指挥)
+│
+├── .gitignore
+├── chromedriver.exe                     # Selenium的浏览器驱动
+├── LICENSE
+├── README.md                            # 项目说明文档
+├── requirements.txt                     # 描述整个项目的Python库依赖
+└── generate_readme.py                   # (项目级工具) 自动化生成README.md的脚本
