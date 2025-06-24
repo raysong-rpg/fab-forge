@@ -200,3 +200,4 @@ cython_debug/
 # 忽略所有由脚本生成的报告和数据文件
 
 */output/
+step2_enrich_data/config.py
